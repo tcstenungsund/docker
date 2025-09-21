@@ -15,11 +15,26 @@
 # 
 # A docker-compose file for installing Drupal, MariaDB and Adminer  
 # 
+# IMPORTANT!
+#
+# 1) 
 # Change XX to the version of Drupal you need  
 # (ie: 11 for Drupal 11 and 8 for Drupal 8)  
 # 
+# 2) 
 # Change PROJECT_NAME to the name of the project you are initiating  
-#  
+# 
+# 3) 
+# Change the login details for the SQL database  
+#
+# 4) 
+# Create the folders themes and modules in your project directory  
+# 
+# 5) 
+# Now you can initiate the file with  
+# docker compose up -d 
+# 
+# 
 # Access via "http://localhost:8080" and the local  
 # directories ./themes, ./modules and ./db  
 #
@@ -46,9 +61,9 @@ services:
     restart: always
     ports:
       - "8081:8080"
-    environment: 
+    environment:
       - ADMINER_DEFAULT_SERVER=mariadb-PROJECT_NAME
-     
+
   mariadb:
     image: mariadb
     container_name: mariadb-PROJECT_NAME
@@ -57,8 +72,8 @@ services:
     volumes:
       - ./db:/host
     environment:
-      - MYSQL_ROOT_PASSWORD=mariadb
-      - MYSQL_DATABASE=drupal
-      - MYSQL_USER=drupal
-      - MYSQL_PASSWORD=drupal
+      - MYSQL_ROOT_PASSWORD=root_password
+      - MYSQL_DATABASE=my_database_name
+      - MYSQL_USER=username
+      - MYSQL_PASSWORD=user_password 
     restart: always
