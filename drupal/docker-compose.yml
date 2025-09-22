@@ -36,7 +36,7 @@
 # 
 # 
 # Access via "http://localhost:8080" and the local  
-# directories ./themes, ./modules and ./db  
+# directories ./themes and ./modules  
 #
 
 services:
